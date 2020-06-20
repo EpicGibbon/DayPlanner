@@ -4,9 +4,7 @@ $("#currentDay").text(moment().format('dddd, MMM Do'));
 function timeSlot() {
   const presentTime = moment().hours();
   $(".row").each(function () {
-    console.log('this', this);
     const planRow = parseInt($(this).attr("data-time"));
-    console.log("planRow", planRow);
     if (planRow < presentTime) {
       console.log("past");
       $(this).addClass("past");
