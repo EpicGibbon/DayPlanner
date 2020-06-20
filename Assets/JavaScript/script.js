@@ -31,7 +31,6 @@ $(".saveBtn").click(function (event) {
 });
   
 timeSlot();
-// const interval = setInterval(timeSlot, 60000);
 })
 //3 - When the app opens, display content for each time block from local storage
 $("#text-nine").val(localStorage.getItem("9"));
@@ -43,7 +42,3 @@ $("#text-two").val(localStorage.getItem("2"));
 $("#text-three").val(localStorage.getItem("3"));
 $("#text-four").val(localStorage.getItem("4"));
 $("#text-five").val(localStorage.getItem("5"));
-
-    // It can be done with a for loop(more efficient) or by targetting each time block seperartly
-
-//4 - change time block background color depending in the current hour (past, present and future).
