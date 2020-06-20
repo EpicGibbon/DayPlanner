@@ -2,9 +2,9 @@
 $("#currentDay").text(moment().format('dddd, MMM Do'));
 
 function timeSlot() {
-  const presentTime = moment.hours();
+  const presentTime = moment().hours();
   $(".row").each(function () {
-    const planRow = parseInt($(this).attr("id"));
+    const planRow = parseInt($(this).attr("data-time"));
     if (planRow < presentTime) {
       $(this).addClass("past");
     }
@@ -17,14 +17,19 @@ function timeSlot() {
   });
 }
 //When save is clicked, it saves it to local storage
+$(document).ready(function(){
+
 $(".saveBtn").click(function (event) {
   event.preventDefault();
   //Grabbing the previous elements value
   var prevVal = $(this).prev("textarea").val();
   var time = $(this).attr("data-time");
   localStorage.setItem(time, prevVal);
-  // storeSave();
 });
+  
+timeSlot();
+// const interval = setInterval(timeSlot, 60000);
+})
 //3 - When the app opens, display content for each time block from local storage
 $("#text-nine").val(localStorage.getItem("9"));
 $("#text-ten").val(localStorage.getItem("10"));
@@ -39,4 +44,3 @@ $("#text-five").val(localStorage.getItem("5"));
     // It can be done with a for loop(more efficient) or by targetting each time block seperartly
 
 //4 - change time block background color depending in the current hour (past, present and future).
-
